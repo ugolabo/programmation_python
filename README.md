@@ -392,7 +392,7 @@ mon_four = Four("Four134", 1400)
 print(mon_af)
 ```
 
-    > <__main__.AirFryer object at 0x774461ded6a0>
+    > <__main__.AirFryer object at 0x7eccc4ae56a0>
 
 ``` python
 appareils = [mon_af, mon_four]
@@ -552,7 +552,7 @@ print("La prise reçoit un wattage\nqui respecte la limite du secteur (True) :\n
 
 Le module mypy permet de valider le code typé sans l’exécuter.
 
-Il faut sauvegarder le code dans un code source (.py) et lancer dans un terminal : `mypy mon_script.py`. Ce qui donne :
+Il faut sauvegarder le code dans un code source et lancer dans un terminal : `mypy mon_script.py`. Ce qui donne :
 
     Success: no issues found in 1 source file
 
@@ -564,7 +564,7 @@ Sinon, les erreurs sont identifiées (numéro de ligne et type). On apporte les 
 
 Le module flake8 permet de vérifier que le code respecte la norme PEP 8 sans exécuter ce code. C’est un linter.
 
-Il faut sauvegarder le code dans un code source (.py) et lancer dans un terminal : `flake8 mon_script.py`. Ce qui donne :
+Il faut sauvegarder le code dans un code source et lancer dans un terminal : `flake8 mon_script.py`. Ce qui donne :
 
     cas_3.py:8:1: E302 expected 2 blank lines, found 1
     cas_3.py:9:40: W291 trailing whitespace
@@ -581,7 +581,7 @@ Les erreurs sont identifiées (numéro de ligne, position dans la ligne et type)
 
 Le module Pylint est un linter plus sévère que le module flake8, car il analyse aussi la qualité logique du code source.
 
-Il faut sauvegarder le code dans un code source (.py) et lancer dans un terminal : `pylint mon_script.py`. Ce qui donne :
+Il faut sauvegarder le code dans un code source et lancer dans un terminal : `pylint mon_script.py`. Ce qui donne :
 
     ************* Module cas_3
     cas_3.py:9:39: C0303: Trailing whitespace (trailing-whitespace)
@@ -957,7 +957,7 @@ chrono_code = stop - start
 print(f"Résultat: {resultat} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat: 21081849486.439312 calculé en 12.46652s
+    > Résultat: 21081849486.439312 calculé en 13.33709s
 
 ### Exécuter
 
@@ -974,7 +974,7 @@ chrono_numba = stop - start
 print(f"Résultat : {resultat_numba} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat : 21081849486.439312 calculé en 0.38384s
+    > Résultat : 21081849486.439312 calculé en 0.39976s
 
 ## Cython : le pont entre Python et C
 
@@ -1093,7 +1093,7 @@ chrono_cython = stop - start
 print(f"Résultat : {resultat} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat : 21081849486.439312 calculé en 0.02632s
+    > Résultat : 21081849486.439312 calculé en 0.02481s
 
 Importer seulement la fonction du module (du sous-répertoire ‘codes_sources’).
 
@@ -1113,7 +1113,7 @@ stop = time.time()
 print(f"Résultat : {resultat} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat : 21081849486.439312 calculé en 0.02402s
+    > Résultat : 21081849486.439312 calculé en 0.02416s
 
 ## Mojo de Modular
 
@@ -1155,9 +1155,9 @@ print(f"Chrono Cython : {chrono_cython:.5f}s")
 print(f"Chrono Mojo : ??? (encore plus rapide que Cython)")
 ```
 
-    > Chrono Code :  12.46652s
-    > Chrono Numba :  0.38384s
-    > Chrono Cython : 0.02632s
+    > Chrono Code :  13.33709s
+    > Chrono Numba :  0.39976s
+    > Chrono Cython : 0.02481s
     > Chrono Mojo : ??? (encore plus rapide que Cython)
 
 L’Exécution Accélérée devient utile pour implanter un pipeline de traitement en Data Science.
@@ -1194,8 +1194,8 @@ La structure de file (queue) est idéale : FIFO, First In, First Out.
 |:---|:---|
 | <img src="img/queue.jpg" width="200" /> | <img src="img/participants_q.gif" width="400" /> |
 
-- `deque()` pour dequeue, `push()`, vider la file.
-- `enque()` pour enqueue, `pop()`, remplir la file.
+- `enque()` pour enqueue, `push()`, remplir la file.
+- `deque()` pour dequeue, `pop()`, vider la file.
 
 ``` python
 from collections import deque
@@ -1406,7 +1406,7 @@ principal = Disjoncteur("Principal", cuisine, salon)
 print(cuisine)
 ```
 
-    > <__main__.Disjoncteur object at 0x77445acd7250>
+    > <__main__.Disjoncteur object at 0x7eccbdedf250>
 
 ``` python
 couper_courant_arbre(cuisine)
@@ -1765,12 +1765,12 @@ plt.xlabel('Heures Radiateur (h)'), plt.ylabel('Heures Chauffe-eau (h)')
 plt.title('Optimisation Linéaire : Coût Électrique')
 plt.legend(), plt.grid(True, alpha=0.3)
 
+plt.savefig("img/mon_graphique_1.png")
+
 plt.show();
 ```
 
-    > ((0.0, 7.0), (0.0, 4.0))
-
-![](programmation_python_files/figure-commonmark/unnamed-chunk-66-1.png)
+<img src="img/mon_graphique_1.png" style="width:100.0%" />
 
 La ligne rouge (Limite Disjoncteur) représente la limite physique des 15 kWh ou la contrainte du problème. Plus on l’approche, en partant de l’origine (0, 0), plus on consomme.
 
@@ -1795,12 +1795,12 @@ plt.scatter(h_radiateur.varValue, h_chauffe_eau.varValue, color='gold', alpha=0.
 
 plt.xlim(2.5, 3.5), plt.ylim(1.5, 2.5)
 
+plt.savefig("img/mon_graphique_2.png")
+
 plt.show();
 ```
 
-    > ((2.5, 3.5), (1.5, 2.5))
-
-![](programmation_python_files/figure-commonmark/unnamed-chunk-67-3.png)
+<img src="img/mon_graphique_2.png" style="width:100.0%" />
 
 La zone entre le cercle et la ligne rouge représente la marge de sécurité (ou slack). Consommer un peu plus ne fera pas sauter le système.
 
