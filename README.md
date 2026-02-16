@@ -392,7 +392,7 @@ mon_four = Four("Four134", 1400)
 print(mon_af)
 ```
 
-    > <__main__.AirFryer object at 0x7eccc4ae56a0>
+    > <__main__.AirFryer object at 0x72aad8b016a0>
 
 ``` python
 appareils = [mon_af, mon_four]
@@ -957,7 +957,7 @@ chrono_code = stop - start
 print(f"Résultat: {resultat} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat: 21081849486.439312 calculé en 13.33709s
+    > Résultat: 21081849486.439312 calculé en 11.97748s
 
 ### Exécuter
 
@@ -974,7 +974,7 @@ chrono_numba = stop - start
 print(f"Résultat : {resultat_numba} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat : 21081849486.439312 calculé en 0.39976s
+    > Résultat : 21081849486.439312 calculé en 0.35679s
 
 ## Cython : le pont entre Python et C
 
@@ -1093,7 +1093,7 @@ chrono_cython = stop - start
 print(f"Résultat : {resultat} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat : 21081849486.439312 calculé en 0.02481s
+    > Résultat : 21081849486.439312 calculé en 0.02370s
 
 Importer seulement la fonction du module (du sous-répertoire ‘codes_sources’).
 
@@ -1113,7 +1113,7 @@ stop = time.time()
 print(f"Résultat : {resultat} calculé en {stop - start:.5f}s")
 ```
 
-    > Résultat : 21081849486.439312 calculé en 0.02416s
+    > Résultat : 21081849486.439312 calculé en 0.02339s
 
 ## Mojo de Modular
 
@@ -1155,9 +1155,9 @@ print(f"Chrono Cython : {chrono_cython:.5f}s")
 print(f"Chrono Mojo : ??? (encore plus rapide que Cython)")
 ```
 
-    > Chrono Code :  13.33709s
-    > Chrono Numba :  0.39976s
-    > Chrono Cython : 0.02481s
+    > Chrono Code :  11.97748s
+    > Chrono Numba :  0.35679s
+    > Chrono Cython : 0.02370s
     > Chrono Mojo : ??? (encore plus rapide que Cython)
 
 L’Exécution Accélérée devient utile pour implanter un pipeline de traitement en Data Science.
@@ -1288,7 +1288,9 @@ traiter_file_recursive(file_ordres)
 
 La **file** et la **pile** sont des structures algorithmiques linéaires ; des séquences. On les retrouve d’ailleurs en Machine Learning.
 
-<img src="img/aima.jpg" style="width:30.0%" alt="Artificial Intelligence, A Modern Approach." />
+<img src="img/aima.jpg" style="width:30.0%" />
+
+<img src="img/algorithms.jpg" style="width:30.0%" />
 
 ### File
 
@@ -1406,7 +1408,7 @@ principal = Disjoncteur("Principal", cuisine, salon)
 print(cuisine)
 ```
 
-    > <__main__.Disjoncteur object at 0x7eccbdedf250>
+    > <__main__.Disjoncteur object at 0x72aad1ecf250>
 
 ``` python
 couper_courant_arbre(cuisine)
@@ -1481,7 +1483,7 @@ def inspecter_reseau(noeud, reseau):
         inspecter_reseau(voisin, reseau)
 ```
 
-<img src="img/recursive.jpg" style="width:30.0%" />
+<img src="img/recursive2.jpg" style="width:30.0%" />
 
 ### Exécuter
 
@@ -1528,7 +1530,9 @@ L’**arbre** et le **graphe** sont des structures algorithmiques complexes.
 
 On les retrouve d’ailleurs en Machine Learning.
 
-<img src="img/aima.jpg" style="width:30.0%" alt="Artificial Intelligence, A Modern Approach." />
+<img src="img/aima.jpg" style="width:30.0%" />
+
+<img src="img/algorithms.jpg" style="width:30.0%" />
 
 ### Arbre
 
